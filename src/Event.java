@@ -2,6 +2,7 @@
 //  and checkout Events.
 
 import java.util.List;
+import java.util.ArrayList;
 
 public class Event {
 	enum DeskEvent {
@@ -41,6 +42,12 @@ public class Event {
 		}
 		
 		return maxCount;
+	}
+	
+	public static List<Event> EventsFromTrans(List<BookTransaction> trans)
+	{
+		ArrayList<Event> events = new ArrayList<Event>();
+		return events;
 	}
 
 	public String bookName;

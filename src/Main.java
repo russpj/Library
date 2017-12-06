@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
 
@@ -36,5 +37,8 @@ public class Main {
 		trans.add(new BookTransaction("Head First Java", 5, 10));
 		trans.add(new BookTransaction("Head First Java", 8, 9));
 		trans.add(new BookTransaction("Head First Java", 8, -1));
+		
+		List<Event> eventsFromTrans = Event.EventsFromTrans(trans);
+		System.out.println(eventsFromTrans.size());
 	}
 }
