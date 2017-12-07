@@ -47,6 +47,19 @@ public class Event {
 	public static List<Event> EventsFromTrans(List<BookTransaction> trans)
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
+		
+		for (int i = 0; i < trans.size(); i++)
+		{
+			BookTransaction tran = trans.get(i);
+			if (tran.dayIn >= 0)
+			{
+				events.add(new Event(tran.name, tran.dayIn, Event.DeskEvent.checkin));
+			}
+			if (tran.dayOut >= 0)
+			{
+				events.add(new Event(tran.name, tran.dayOut, Event.DeskEvent.checkout));
+			}
+		}
 		return events;
 	}
 
