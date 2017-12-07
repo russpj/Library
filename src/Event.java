@@ -60,7 +60,26 @@ public class Event {
 				events.add(new Event(tran.name, tran.dayOut, Event.DeskEvent.checkout));
 			}
 		}
+		events.sort((Event a, Event b) -> {
+			if (a.day != b.day)
+				return a.day - b.day;
+			else if (a.deskEvent != b.deskEvent)
+				return (a.deskEvent == Event.DeskEvent.checkin) ? -1 : 1;
+			else
+				return (a.bookName.compareTo(b.bookName));
+		});
+		
 		return events;
+	}
+	
+	@Override
+	public String toString() {
+		String result = new String(bookName);
+		result += " ";
+		result += String.valueOf(day);
+		result += " ";
+		result += deskEvent.toString();
+		return result;
 	}
 
 	public String bookName;

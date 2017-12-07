@@ -40,5 +40,15 @@ public class Main {
 		
 		List<Event> eventsFromTrans = Event.EventsFromTrans(trans);
 		System.out.println(eventsFromTrans.size());
+		for (int i = 0; i < eventsFromTrans.size(); i++)
+		{
+			Event event = eventsFromTrans.get(i);
+			System.out.println(event.toString());
+		}
+		
+		maxCheckedOut = Event.MaxCheckedOut(events);
+		System.out.print("There were at most ");
+		System.out.print(maxCheckedOut);
+		System.out.println(" books checked out"); 
 	}
 }
