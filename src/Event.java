@@ -5,16 +5,16 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Event {
-	enum DeskEvent {
+	enum Stamp {
 		checkout,
 		checkin
 	}
 	
-	Event(String nameIn, int dayIn, DeskEvent eventIn)
+	Event(String nameIn, int dayIn, Stamp eventIn)
 	{
 		bookName = nameIn;
 		day = dayIn;
-		deskEvent = eventIn;
+		stamp = eventIn;
 	}
 	
 	public static int MaxCheckedOut(List<Event> events)
@@ -25,7 +25,7 @@ public class Event {
 		for (int i=0; i < events.size(); i++)
 		{
 			Event event = events.get(i);
-			switch (event.deskEvent)
+			switch (event.stamp)
 			{
 			case checkout:
 				countCheckedOut++;
@@ -53,18 +53,18 @@ public class Event {
 			BookTransaction tran = trans.get(i);
 			if (tran.dayIn >= 0)
 			{
-				events.add(new Event(tran.name, tran.dayIn, Event.DeskEvent.checkin));
+				events.add(new Event(tran.name, tran.dayIn, Event.Stamp.checkin));
 			}
 			if (tran.dayOut >= 0)
 			{
-				events.add(new Event(tran.name, tran.dayOut, Event.DeskEvent.checkout));
+				events.add(new Event(tran.name, tran.dayOut, Event.Stamp.checkout));
 			}
 		}
 		events.sort((Event a, Event b) -> {
 			if (a.day != b.day)
 				return a.day - b.day;
-			else if (a.deskEvent != b.deskEvent)
-				return (a.deskEvent == Event.DeskEvent.checkin) ? -1 : 1;
+			else if (a.stamp != b.stamp)
+				return (a.stamp == Event.Stamp.checkin) ? -1 : 1;
 			else
 				return (a.bookName.compareTo(b.bookName));
 		});
@@ -78,11 +78,11 @@ public class Event {
 		result += " ";
 		result += String.valueOf(day);
 		result += " ";
-		result += deskEvent.toString();
+		result += stamp.toString();
 		return result;
 	}
 
 	public String bookName;
 	public int day;
-	public DeskEvent deskEvent; 
+	public Stamp stamp; 
 }
