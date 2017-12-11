@@ -30,7 +30,7 @@ public class Main {
 		
 		ArrayList<BookTransaction> trans = new ArrayList<BookTransaction>();
 		
-		trans.add(new BookTransaction("Head First Java", 1, 7));
+		trans.add(new BookTransaction("Head First Java", 1, 8));
 		trans.add(new BookTransaction("Head First Java", 1, 3));
 		trans.add(new BookTransaction("Head First Java", 2, 3));
 		trans.add(new BookTransaction("Head First Java", 4, -1));
