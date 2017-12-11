@@ -10,11 +10,11 @@ public class Event {
 		checkin
 	}
 	
-	Event(String nameIn, int dayIn, Stamp eventIn)
+	Event(String nameIn, int dayIn, Stamp stampIn)
 	{
 		bookName = nameIn;
 		day = dayIn;
-		stamp = eventIn;
+		stamp = stampIn;
 	}
 	
 	public static int MaxCheckedOut(List<Event> events)
