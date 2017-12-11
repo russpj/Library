@@ -1,8 +1,9 @@
 //	The Event class contains the information for the checkin
 //  and checkout Events.
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 
 public class Event {
 	enum Stamp {
@@ -61,14 +62,8 @@ public class Event {
 				events.add(new Event(slip.name, slip.dayOut, Stamp.checkout));
 			}
 		}
-		events.sort((Event a, Event b) -> {
-			if (a.day != b.day)
-				return a.day - b.day;
-			else if (a.stamp != b.stamp)
-				return (a.stamp == Stamp.checkin) ? -1 : 1;
-			else
-				return (a.bookName.compareTo(b.bookName));
-		});
+		
+		events.sort(new EventOrder());
 		
 		return events;
 	}
