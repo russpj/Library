@@ -45,20 +45,20 @@ public class Event {
 		return maxCount;
 	}
 	
-	public static List<Event> EventsFromTrans(List<BookTransaction> trans)
+	public static List<Event> EventsFromTrans(List<Slip> slips)
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
 		
-		for (int i = 0; i < trans.size(); i++)
+		for (int i = 0; i < slips.size(); i++)
 		{
-			BookTransaction tran = trans.get(i);
-			if (tran.dayIn >= 0)
+			Slip slip = slips.get(i);
+			if (slip.dayIn >= 0)
 			{
-				events.add(new Event(tran.name, tran.dayIn, Stamp.checkin));
+				events.add(new Event(slip.name, slip.dayIn, Stamp.checkin));
 			}
-			if (tran.dayOut >= 0)
+			if (slip.dayOut >= 0)
 			{
-				events.add(new Event(tran.name, tran.dayOut, Stamp.checkout));
+				events.add(new Event(slip.name, slip.dayOut, Stamp.checkout));
 			}
 		}
 		events.sort((Event a, Event b) -> {

@@ -1,6 +1,6 @@
 
-public class BookTransaction {
-	BookTransaction(String nameIn, int dayOutIn, int dayInIn)
+public class Slip {
+	Slip(String nameIn, int dayOutIn, int dayInIn)
 	{
 		name = nameIn;
 		dayOut = dayOutIn;
