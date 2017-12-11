@@ -7,10 +7,7 @@ public class Slip {
 		dayIn = dayInIn;
 	}
 	
-	
-	
 	public String name;
 	public int dayOut;
 	public int dayIn;
-
 }
