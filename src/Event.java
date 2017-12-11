@@ -33,6 +33,7 @@ public class Event {
 				
 			case checkin:
 				countCheckedOut--;
+				break;
 			}
 			
 			if (countCheckedOut > maxCount)
@@ -53,18 +54,18 @@ public class Event {
 			BookTransaction tran = trans.get(i);
 			if (tran.dayIn >= 0)
 			{
-				events.add(new Event(tran.name, tran.dayIn, Event.Stamp.checkin));
+				events.add(new Event(tran.name, tran.dayIn, Stamp.checkin));
 			}
 			if (tran.dayOut >= 0)
 			{
-				events.add(new Event(tran.name, tran.dayOut, Event.Stamp.checkout));
+				events.add(new Event(tran.name, tran.dayOut, Stamp.checkout));
 			}
 		}
 		events.sort((Event a, Event b) -> {
 			if (a.day != b.day)
 				return a.day - b.day;
 			else if (a.stamp != b.stamp)
-				return (a.stamp == Event.Stamp.checkin) ? -1 : 1;
+				return (a.stamp == Stamp.checkin) ? -1 : 1;
 			else
 				return (a.bookName.compareTo(b.bookName));
 		});
