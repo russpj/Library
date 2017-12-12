@@ -18,7 +18,7 @@ public class Event {
 		stamp = stampIn;
 	}
 	
-	public static int MaxCheckedOut(List<Event> events)
+	public static int maxCheckedOut(List<Event> events)
 	{
 		int maxCount = 0;
 		int countCheckedOut = 0;
@@ -59,7 +59,7 @@ public class Event {
 		}
 	}
 	
-	public static List<Event> EventsFromTrans(List<Slip> slips)
+	public static List<Event> eventsFromSlips(List<Slip> slips)
 	{
 		ArrayList<Event> events = new ArrayList<Event>();
 		

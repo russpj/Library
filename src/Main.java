@@ -20,7 +20,7 @@ public class Main {
 		events.add(new Event("Head First Java", 10, Event.Stamp.checkin));
 		events.add(new Event("Head First Java", 12, Event.Stamp.checkin));
 		
-		int maxCheckedOut = Event.MaxCheckedOut(events);
+		int maxCheckedOut = Event.maxCheckedOut(events);
 		
 		System.out.print("There were at most ");
 		System.out.print(maxCheckedOut);
@@ -38,7 +38,7 @@ public class Main {
 		trans.add(new Slip("Head First Java", 8, 9));
 		trans.add(new Slip("Head First Java", 8, -1));
 		
-		List<Event> eventsFromTrans = Event.EventsFromTrans(trans);
+		List<Event> eventsFromTrans = Event.eventsFromSlips(trans);
 		System.out.println(eventsFromTrans.size());
 		for (int i = 0; i < eventsFromTrans.size(); i++)
 		{
@@ -46,7 +46,7 @@ public class Main {
 			System.out.println(event.toString());
 		}
 		
-		maxCheckedOut = Event.MaxCheckedOut(events);
+		maxCheckedOut = Event.maxCheckedOut(events);
 		System.out.print("There were at most ");
 		System.out.print(maxCheckedOut);
 		System.out.println(" books checked out"); 
